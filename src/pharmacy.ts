@@ -90,6 +90,21 @@ const drugUpdaters: Record<string, (drug: Drug) => Drug> = {
     }
     return drug;
   },
+
+  /**
+   * Updates "Dafalgan":
+   * - ExpiresIn decreases by 1.
+   * - Benefit decreases by 2.
+   * - If expired, Benefit decreases by an additional 2.
+   */
+  Dafalgan: (drug: Drug) => {
+    drug.expiresIn--;
+    drug.benefit -= BENEFIT_VARIATION * 2;
+    if (drug.expiresIn < 0) {
+      drug.benefit -= BENEFIT_VARIATION * 2;
+    }
+    return drug;
+  },
 };
 
 /**
