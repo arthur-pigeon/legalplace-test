@@ -1,3 +1,9 @@
+/**
+ * Represents a drug with its properties.
+ * @param {string} name - The name of the drug.
+ * @param {number} expiresIn - The number of days until the drug expires.
+ * @param {number} benefit - The benefit value of the drug.
+ */
 export class Drug {
   name: string;
   expiresIn: number;
@@ -10,12 +16,22 @@ export class Drug {
   }
 }
 
+/**
+ * Manages a collection of drugs and updates their benefit values daily based on defined rules.
+ * @param {Drug[]} [drugs=[]] - An array of Drug objects.
+ */
 export class Pharmacy {
   drugs: Drug[];
 
   constructor(drugs: Drug[]) {
     this.drugs = drugs;
   }
+
+  /**
+   * Updates the benefit and expiresIn values for each drug in the pharmacy
+   * by applying the conditional logic based on the drug's name.
+   * @returns {Drug[]} The updated array of Drug objects.
+   */
   updateBenefitValue() {
     for (var i = 0; i < this.drugs.length; i++) {
       if (
