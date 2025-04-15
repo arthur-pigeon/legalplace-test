@@ -158,4 +158,38 @@ describe("Pharmacy", () => {
       expect(updatedDrugs5_49[0].benefit).toBe(50); // 49 + 3 capped at 50
     });
   });
+
+  // describe("Dafalgan", () => {
+  //   it("should decrease benefit twice as fast", () => {
+  //     const initialDrugs = [new Drug("Dafalgan", 10, 20)];
+  //     const pharmacy = new Pharmacy(initialDrugs);
+  //     const updatedDrugs = pharmacy.updateBenefitValue();
+  //     expect(updatedDrugs[0].expiresIn).toBe(9);
+  //     expect(updatedDrugs[0].benefit).toBe(18); // Normal drug decreases by 1, Dafalgan by 2
+  //   });
+
+  //   it("should decrease benefit twice as fast (x4) after expiration date", () => {
+  //     const initialDrugs = [new Drug("Dafalgan", 0, 20)];
+  //     const pharmacy = new Pharmacy(initialDrugs);
+  //     const updatedDrugs = pharmacy.updateBenefitValue();
+  //     expect(updatedDrugs[0].expiresIn).toBe(-1);
+  //     expect(updatedDrugs[0].benefit).toBe(16); // Normal drug decreases by 2 post-expiry, Dafalgan by 4
+  //   });
+
+  //   it("should not decrease benefit below zero", () => {
+  //     // Test before expiry
+  //     const initialDrugs = [new Drug("Dafalgan", 10, 1)];
+  //     const pharmacy = new Pharmacy(initialDrugs);
+  //     const updatedDrugs = pharmacy.updateBenefitValue();
+  //     expect(updatedDrugs[0].expiresIn).toBe(9);
+  //     expect(updatedDrugs[0].benefit).toBe(0); // 1 - 2 = -1, capped at 0
+
+  //     // Test after expiry
+  //     const initialDrugsExpired = [new Drug("Dafalgan", 0, 3)];
+  //     const pharmacyExpired = new Pharmacy(initialDrugsExpired);
+  //     const updatedDrugsExpired = pharmacyExpired.updateBenefitValue();
+  //     expect(updatedDrugsExpired[0].expiresIn).toBe(-1);
+  //     expect(updatedDrugsExpired[0].benefit).toBe(0); // 3 - 4 = -1, capped at 0
+  //   });
+  // });
 });
